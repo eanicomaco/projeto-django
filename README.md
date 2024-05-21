@@ -8,7 +8,7 @@
 <p>O projeto foi criado para desenvolver habilidades no uso do framework Django/ Python. Trabalho há anos com Laravel/ PHP e posso afirmar algumas coisas:</p>
 <ul>
     <li>Conhecer um novo framework é muito melhor do que conhecer o seu primeiro framework. O uso do Laravel derrubou e muito a curva de aprendizado em Django.</li>
-    <li><strong>Django</strong> não possui tanto recursos quanto o Laravel (e não é tão pesado), mas é uma ferramenta mais simples de utilizar, logo, mais produtiva.</li>
+    <li><strong>Django</strong> nativo não implementa tantos recursos quanto o Laravel (e não é tão pesado), mas é uma ferramenta mais simples de utilizar e é sensivelmente mais produtiva.</li>
     <li>Jinja tem recursos similares ao Blade, mas as extensões disponíveis no VSCode deixam um pouco a desejar. Para aumentar a produtividade, é bom desenvolver seus próprios snippets.</li>
     <li>O MVT do Django é praticamente igual ao MVC do Laravel. Parece-me sopa de letrinhas. As views são os controllers e as templates são as views.</li>
     <li>As paths do Django são mais simples e organizadas do que as routes do Laravel.</li>
