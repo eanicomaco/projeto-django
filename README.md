@@ -1,1 +1,3 @@
 PROJETO DO CURSO DE DJANGO - TEMPLATES E BOAS PRÁTICAS, DA ALURA
+
+#Ferramentas utilizadas
