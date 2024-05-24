@@ -21,6 +21,11 @@ def login(request):
     else:
         return render(request, 'usuarios/login.html')
 
+def logout(request):
+    auth.logout(request)
+    messages.success(request, 'Logout realizado com sucesso')
+    return redirect('login')
+
 def cadastro(request):
 
     if request.method == 'POST':
