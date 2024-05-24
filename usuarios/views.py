@@ -8,10 +8,10 @@ def login(request):
     if request.method == 'POST':
         usuario = request.POST.get('usuario')
         senha = request.POST.get('senha')
-        user = authenticate(username=usuario, password=senha)
+        user = auth.authenticate(request, username=usuario, password=senha)
 
         if user is not None:
-            login(request,user)
+            auth.login(request, user)
             messages.success(request, f'Olá {usuario}! Você logou com sucesso!')
             return redirect('index')
         else:
@@ -57,5 +57,4 @@ def cadastro(request):
             return redirect('cadastro', {'form':data})
 
     else:
-        messages.error(request, 'Operação ilegal')
         return render(request, 'usuarios/cadastro.html')
