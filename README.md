@@ -2,7 +2,7 @@
 
 <h1>PROJETO SPACE</h1>
 <p>O projeto, adaptado do curso de Django da Alura, apresenta imagens de estrelas, galáxias, nebulosas e planetas capturadas por satélites da NASA.</p>
-<p>O usuário pode selecionar as imagens desejadas através de um campo de buscas, clicando em uma categoria ou simplesmente clicando na imagem a partir da listagem.</p> Alteração.
+<p>O usuário pode selecionar as imagens desejadas através de um campo de buscas, clicando em uma categoria ou simplesmente clicando na imagem a partir da listagem.</p>
 
 <h3>🎯 Objetivos do Projeto</h3>
 <p>O projeto foi criado para desenvolver habilidades no uso do framework Django/ Python. Trabalho há anos com Laravel/ PHP e posso afirmar algumas coisas:</p>
