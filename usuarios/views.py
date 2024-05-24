@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.contrib import messages, auth
 
 def login(request):
@@ -36,11 +36,11 @@ def cadastro(request):
 
         if senha1 != senha2:
             messages.error(request, 'As senhas não conferem')
-            return redirect('cadastro', {'form':data})
+            return render('cadastro', {'form':data})
 
         if User.objects.filter(username=usuario).exists():
             messages.error(request, 'Nome de usuário já está em uso')
-            return redirect('cadastro', {'form':data})
+            return render('cadastro', {'form':data})
 
         user = User.objects.create_user(username=usuario, email=email, password=senha1)
 
@@ -51,10 +51,10 @@ def cadastro(request):
                 return redirect('login')
             else:
                 messages.error(request, 'Falha ao autenticar o usuário após o cadastro')
-                return redirect('cadastro', {'form':data})
+                return render('cadastro', {'form':data})
         else:
             messages.error(request, 'Falha ao cadastrar o usuário')
-            return redirect('cadastro', {'form':data})
+            return render('cadastro', {'form':data})
 
     else:
         return render(request, 'usuarios/cadastro.html')
