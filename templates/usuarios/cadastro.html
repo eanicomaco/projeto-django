@@ -23,6 +23,7 @@
             {% include 'galeria/partials/_menu_lateral.html' %}
             <section class="galeria" style="margin-left: 5em">
                 <form action="{% url 'cadastro' %}" method="post">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
                             <label for="usuario" style="color:#D9D9D9; margin-bottom: 5px;"><b>Usuário</b></label>
@@ -34,11 +35,11 @@
                         </div>
                         <div class="col-12 col-lg-6" style="margin-bottom: 10px;">
                             <label for="senha1" style="color:#D9D9D9; margin-bottom: 5px;"><b>Senha</b></label>
-                            <input type="senha" class="form-control" name="senha1" placeholder="Digite sua senha" required>
+                            <input type="password" class="form-control" name="senha1" placeholder="Digite sua senha" required>
                         </div>
                         <div class="col-12 col-lg-6" style="margin-bottom: 10px;">
                             <label for="senha2" style="color:#D9D9D9; margin-bottom: 5px;"><b>Confirmação de senha</b></label>
-                            <input type="senha" class="form-control" name="senha2" placeholder="Digite sua senha mais uma vez" required>
+                            <input type="password" class="form-control" name="senha2" placeholder="Digite sua senha mais uma vez" required>
                         </div>
                         <div class="col-12 text-center">
                             <button class="btn btn-success col-12" style="padding: top 5px;" type="submit">Criar sua conta</button>
