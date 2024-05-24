@@ -12,10 +12,10 @@ def login(request):
 
         if user is not None:
             login(request,user)
-            messages.success(f'Olá {usuario}! Você logou com sucesso!')
+            messages.success(request, f'Olá {usuario}! Você logou com sucesso!')
             return redirect('index')
         else:
-            messages.error('Falha ao tentar logar no sistema')
+            messages.error(request, 'Falha ao tentar logar no sistema')
             return redirect('login')
 
     else:
