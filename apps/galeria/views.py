@@ -14,11 +14,11 @@ from apps.galeria.models import Fotografia
 # INDEX COM FILTRO  E ORDER_BY
 def index(request):
     fotografias = Fotografia.objects.order_by('nome').filter(ativo=True)
-    return render(request, 'galeria/index.html',{'cards':fotografias})
+    return render(request, 'apps/galeria/index.html',{'cards':fotografias})
 
 def imagem(request, foto_id):
     fotografia = get_object_or_404(Fotografia, pk=foto_id)
-    return render(request, 'galeria/imagem.html',{'fotografia':fotografia})
+    return render(request, 'apps/galeria/imagem.html',{'fotografia':fotografia})
 
 def buscar(request):
     fotografias = Fotografia.objects.order_by('nome').filter(ativo=True)
@@ -27,4 +27,4 @@ def buscar(request):
         criterio = request.GET['buscar']
         if criterio:
             fotografias = fotografias.filter(nome__icontains=criterio) #icontains é tipo LIKE '%crit%'
-    return render(request, "galeria/buscar.html",{'cards':fotografias})
+    return render(request, "apps/galeria/buscar.html",{'cards':fotografias})

@@ -21,7 +21,7 @@ def login(request):
             return redirect('login')
 
     else:
-        return render(request, 'usuarios/login.html')
+        return render(request, 'apps/usuarios/login.html')
 
 def logout(request):
     auth.logout(request)
@@ -50,7 +50,7 @@ def cadastro(request):
         if errors:
             for error in errors:
                 messages.error(request, error)
-            return render(request, 'usuarios/cadastro.html', {'form':data})
+            return render(request, 'apps/usuarios/cadastro.html', {'form':data})
 
         user = User.objects.create_user(username=usuario, email=email, password=senha1)
 
@@ -61,10 +61,10 @@ def cadastro(request):
                 return redirect('login')
             else:
                 messages.error(request, 'Falha ao autenticar o usuário após o cadastro')
-                return render(request, 'usuarios/cadastro.html', {'form':data})
+                return render(request, 'apps/usuarios/cadastro.html', {'form':data})
         else:
             messages.error(request, 'Falha ao cadastrar o usuário')
-            return render(request, 'usuarios/cadastro.html', {'form':data})
+            return render(request, 'apps/usuarios/cadastro.html', {'form':data})
 
     else:
-        return render(request, 'usuarios/cadastro.html')
+        return render(request, 'apps/usuarios/cadastro.html')
