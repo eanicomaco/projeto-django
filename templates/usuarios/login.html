@@ -1,4 +1,4 @@
-{% extends 'galeria/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
     <style>
@@ -11,9 +11,9 @@
         }
     </style>
     <div class="pagina-inicial">
-        {% include 'galeria/partials/_header.html' %}
+        {% include 'partials/_header.html' %}
         <main class="principal">
-            {% include 'galeria/partials/_menu_lateral.html' %}
+            {% include 'partials/_menu_lateral.html' %}
             <section class="galeria" style="margin-left: 5em">
                 <form action="{% url 'login' %}" method="post">
                     {% csrf_token %}
@@ -34,6 +34,4 @@
             </section>
         </main>
     </div>
-
 {% endblock %}
-{% include 'galeria/partials/_footer.html' %}
