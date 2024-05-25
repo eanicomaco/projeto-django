@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib import messages, auth
+from django.core.exceptions import ValidationError
+from utils.utils import validar_username, validar_senha, validar_username_em_uso, validar_email
 
 def login(request):
 
@@ -39,13 +41,16 @@ def cadastro(request):
             'email':email,
         }
 
-        if senha1 != senha2:
-            messages.error(request, 'As senhas não conferem')
-            return render('cadastro', {'form':data})
+        errors = []
+        errors.extend(validar_username_em_uso(usuario))
+        errors.extend(validar_username(usuario))
+        errors.extend(validar_senha(senha1, senha2))
+        errors.extend(validar_email(email))
 
-        if User.objects.filter(username=usuario).exists():
-            messages.error(request, 'Nome de usuário já está em uso')
-            return render('cadastro', {'form':data})
+        if errors:
+            for error in errors:
+                messages.error(request, error)
+            return render(request, 'usuarios/cadastro.html', {'form':data})
 
         user = User.objects.create_user(username=usuario, email=email, password=senha1)
 
@@ -56,10 +61,10 @@ def cadastro(request):
                 return redirect('login')
             else:
                 messages.error(request, 'Falha ao autenticar o usuário após o cadastro')
-                return render('cadastro', {'form':data})
+                return render(request, 'usuarios/cadastro.html', {'form':data})
         else:
             messages.error(request, 'Falha ao cadastrar o usuário')
-            return render('cadastro', {'form':data})
+            return render(request, 'usuarios/cadastro.html', {'form':data})
 
     else:
         return render(request, 'usuarios/cadastro.html')
