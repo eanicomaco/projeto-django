@@ -4,9 +4,9 @@
     <div class="cabecalho__busca">
         <div class="busca__fundo">
             <form action="{% url 'buscar' %}" method="get">
-                <input class="busca__input" type="text" name="buscar" placeholder="O que você procura?" style="color:#fff">
+                <input class="busca__input" type="text" name="buscar" placeholder="O que você procura?" style="color:#fff;padding: 8px 15px;margin-bottom: 0;">
                 <button type="submit" style="background-color:transparent;border:none;">
-                    <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search">
+                    <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search", style="margin-bottom: -10px;">
                 </button>
             </form>
         </div>
