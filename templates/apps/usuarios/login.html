@@ -18,17 +18,17 @@
                 <form action="{% url 'login' %}" method="post">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-md-6 form-group">
+                        <div class="col-12 form-group">
                             <label for="usuario">Login</label>
                             <input type="text" name="usuario" class="form-control">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-12 form-group">
                             <label for="senha">Senha</label>
                             <input type="password" name="senha" class="form-control">
                         </div>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-success col-12" style="padding: top 5px;">Logar</button>
+                        <button type="submit" class="btn btn-success col-12" style="padding: top 5px;width: 100%;">Logar</button>
                     </div>
                 </form>
             </section>
