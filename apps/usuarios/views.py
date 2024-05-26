@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib import messages, auth
 from django.core.exceptions import ValidationError
-from utils.utils import validar_username, validar_senha, validar_username_em_uso, validar_email
+from apps.utils.utils import validar_username, validar_senha, validar_username_em_uso, validar_email
 
 def login(request):
 
