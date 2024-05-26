@@ -4,31 +4,29 @@
     <style>
         label{
             color: #fff;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
         input{
             margin-bottom: 15px;
         }
     </style>
     <div class="pagina-inicial">
-        {% include 'partials/_header.html' %}
+        {% include 'components/_header.html' %}
         <main class="principal">
-            {% include 'partials/_menu_lateral.html' %}
+            {% include 'components/_menu_lateral.html' %}
             <section class="galeria" style="margin-left: 5em">
                 <form action="{% url 'login' %}" method="post">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-12 form-group">
+                        <div class="col-12">
                             <label for="usuario">Login</label>
-                            <input type="text" name="usuario" class="form-control">
+                            <input type="text" name="usuario" class="form-control" placeholder="Digite o login..." required>
                         </div>
-                        <div class="col-12 form-group">
+                        <div class="col-12">
                             <label for="senha">Senha</label>
-                            <input type="password" name="senha" class="form-control">
+                            <input type="password" name="senha" class="form-control" placeholder="Digite a senha..." required>
                         </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-success col-12" style="padding: top 5px;width: 100%;">Logar</button>
+                        <button type="submit" class="btn btn-success col-12">Logar</button>
                     </div>
                 </form>
             </section>

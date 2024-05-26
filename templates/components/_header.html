@@ -1,0 +1,23 @@
+{% load static %}
+<header class="cabecalho">
+    <img src="{% static '/assets/logo/Logo.png' %}" alt="Logo do Projeto Space" />
+    <div class="cabecalho__busca">
+        <div class="busca__fundo">
+            <form action="{% url 'imagem.search' %}" method="get">
+                <input class="busca__input" type="text" name="search" placeholder="O que você procura?" style="color:#fff;padding: 8px 15px;margin-bottom: 0;">
+                <button type="submit" style="background-color:transparent;border:none;">
+                    <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search", style="margin-bottom: -10px;">
+                </button>
+            </form>
+        </div>
+    </div>
+</header>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}">
+        <ul>
+            <li>{{ message }}</li>
+        </ul>
+    </div>
+    {% endfor %}
+{% endif %}
