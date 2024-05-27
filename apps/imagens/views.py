@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from apps.imagens.models import Fotografia
+from apps.imagens.forms import FotografiaForms
 
 # INDEX TRAZENDO TODOS OS ITENS NA PÁGINA
 # def index(request):
@@ -30,7 +31,8 @@ def imagem_search(request):
     return render(request, "apps/imagens/search.html",{'cards':fotografias})
 
 def imagem_create(request):
-    return render(request, 'apps/imagens/create.html')
+    form = FotografiaForms
+    return render(request, 'apps/imagens/create.html',{'form':form})
 
 def imagem_edit(request, foto_id):
     pass

@@ -5,38 +5,22 @@
         {% include 'components/_header.html' %}
         <main class="principal">
             {% include 'components/_menu_lateral.html' %}
-            <section class="conteudo">
-                {% include 'components/_banner.html' %}
-                {% include 'components/_tags.html' %}
+            <section class="conteudo" style="width:100%;">
                 <section class="galeria">
-                    <div class="cards">
-                        <h2 class="cards__titulo">Navegue pela galeria</h2>
-                        <ul class="cards__lista">
-                            {% if cards %}
-                                {% for fotografia in cards %}
-                                    <li class="card">
-                                        <a href="{% url 'imagem.show' fotografia.id %}">
-                                            {% if fotografia.foto == '' or fotografia.foto == null %}
-                                                <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.png' %}" alt="foto">
-                                            {% else %}
-                                                <img class="card__imagem" src="{{ fotografia.foto.url }}" alt="foto">
-                                            {% endif %}
-                                        </a>
-                                        <span class="card__tag">Estrelas</span>
-                                        <div class="card__info">
-                                            <p class="card__titulo">{{ fotografia.nome }}</p>
-                                            <div class="card__texto">
-                                                <p class="card__descricao">{{ fotografia.legenda }}</p>
-                                                <span>
-                                                    <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                {% endfor %}
-                            {% endif %}
-                        </ul>
-                    </div>
+                    <form action="{% url 'imagem.create' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            {% for field in form.visible_fields %}
+                                <div style="margin-bottom:10px;width: 100%;">
+                                    <label for="{{ field.id_for_label }}" style="color:#D9D9D9; margin-bottom: 5px;">{{field.label}}</label>
+                                    {{ field }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success col-12" style="padding: top 5px;">Logar</button>
+                        </div>
+                    </form>
                 </section>
             </section>
         </main>
