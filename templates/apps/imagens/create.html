@@ -7,7 +7,7 @@
             {% include 'components/_menu_lateral.html' %}
             <section class="conteudo" style="width:100%;">
                 <section class="galeria">
-                    <form action="{% url 'imagem.create' %}" method="post">
+                    <form action="{% url 'imagem.create' %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
                             {% for field in form.visible_fields %}
@@ -17,8 +17,8 @@
                                 </div>
                             {% endfor %}
                         </div>
-                        <div>
-                            <button type="submit" class="btn btn-success col-12" style="padding: top 5px;">Logar</button>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success" style="padding: top 5px;float:right">Cadastrar</button>
                         </div>
                     </form>
                 </section>

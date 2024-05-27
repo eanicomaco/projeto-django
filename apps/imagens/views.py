@@ -39,11 +39,14 @@ def imagem_create(request):
 
     form = FotografiaForms
     if request.method == 'POST':
-        form = FotografiaForms(request.POST)
+        form = FotografiaForms(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Fotografia cadastrada com sucesso.')
+            messages.success(request,'Imagem cadastrada com sucesso!')
             return redirect('index')
+        else:
+            messages.error(request, form.errors)
+            return redirect('imagem.create')
 
     return render(request, 'apps/imagens/create.html',{'form':form})
 
