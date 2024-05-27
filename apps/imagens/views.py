@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from apps.imagens.models import Fotografia
 from apps.imagens.forms import FotografiaForms
+from django.contrib import messages
+
 
 # INDEX TRAZENDO TODOS OS ITENS NA PÁGINA
 # def index(request):
@@ -31,7 +33,18 @@ def imagem_search(request):
     return render(request, "apps/imagens/search.html",{'cards':fotografias})
 
 def imagem_create(request):
+    if not request.user.is_authenticated:
+        messages.error(request,'Você precisa estar logado para acessar essa funcionalidade.')
+        return redirect('login')
+
     form = FotografiaForms
+    if request.method == 'POST':
+        form = FotografiaForms(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Fotografia cadastrada com sucesso.')
+            return redirect('index')
+
     return render(request, 'apps/imagens/create.html',{'form':form})
 
 def imagem_edit(request, foto_id):
