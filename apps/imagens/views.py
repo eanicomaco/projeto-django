@@ -23,15 +23,6 @@ def imagem_show(request, foto_id):
     fotografia = get_object_or_404(Fotografia, pk=foto_id)
     return render(request, 'apps/imagens/show.html',{'fotografia':fotografia})
 
-def imagem_search(request):
-    fotografias = Fotografia.objects.order_by('nome').filter(ativo=True)
-
-    if "search" in request.GET:
-        criterio = request.GET['search']
-        if criterio:
-            fotografias = fotografias.filter(nome__icontains=criterio) #icontains é tipo LIKE '%crit%'
-    return render(request, "apps/imagens/search.html",{'cards':fotografias})
-
 def imagem_create(request):
     if not request.user.is_authenticated:
         messages.error(request,'Você precisa estar logado para acessar essa funcionalidade.')
@@ -51,7 +42,30 @@ def imagem_create(request):
     return render(request, 'apps/imagens/create.html',{'form':form})
 
 def imagem_edit(request, foto_id):
-    pass
+    fotografia = Fotografia.objects.get(id=foto_id)
+    form = FotografiaForms(instance=fotografia)
+
+    if request.method == 'POST':
+        form = FotografiaForms(request.POST, request.FILES, instance=fotografia)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Imagem editada com sucesso!')
+            return redirect('index')
+
+    return render(request, 'apps/imagens/edit.html', {'form':form, 'foto_id':foto_id})
 
 def imagem_delete(request, foto_id):
-    pass
+    fotografia = Fotografia.objects.get(id=foto_id)
+    fotografia.delete()
+    messages.success(request, 'Imagem excluída com sucesso!')
+    return redirect('index')
+
+def imagem_search(request):
+    if 'search' in request.GET:
+        criterio = request.GET['search']
+        fotografias = Fotografia.objects.order_by('nome').filter(ativo=True, nome__icontains=criterio) #icontains é tipo LIKE '%crit%'
+    return render(request, "apps/imagens/index.html",{'cards':fotografias})
+
+def imagem_filter(request, filter):
+    fotografias = Fotografia.objects.order_by('nome').filter(ativo=True, categoria=filter)
+    return render(request, 'apps/imagens/index.html',{'cards':fotografias})

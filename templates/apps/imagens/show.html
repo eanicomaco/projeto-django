@@ -20,6 +20,10 @@
                                 <p class="imagem__texto">{{ fotografia.descricao }}</p>
                             </div>
                         </div>
+                        <div style="width: 100%;">
+                            <a href="{% url 'imagem.edit' fotografia.id %}" style="float: right;"><button class="btn btn-success">Editar</button></a>
+                            <a href="{% url 'imagem.delete' fotografia.id %}" style="float: right;"><button class="btn btn-danger">Deletar</button></a>
+                        </div>
                     </div>
                 </section>
             </section>
