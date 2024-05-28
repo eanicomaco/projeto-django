@@ -33,7 +33,7 @@
 <p>Siga esses passos para configurar e executar o projeto Django localmente:</p><br>
 
 <strong>PRÉ-REQUISITOS:</strong><br>
-Antes de começar, certifique-se de ter o Python 3 instalado em sua máquina.
+Antes de começar, certifique-se de ter o Python 3.0 ou superior instalado em sua máquina.
 <br><br>
 
 <strong>1o.</strong> Clonar o repositório e acessar o diretório raiz:
@@ -92,6 +92,6 @@ python manage.py runserver
     <li>Python 3.12.3</li>
     <li>Django</li>
     <li>SQLite3</li>
-    <li>HTML/ CSS</li>
+    <li>HTML/ CSS/ Javascript</li>
     <li>Affinity Design</li>
 </ul>
