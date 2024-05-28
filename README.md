@@ -3,7 +3,7 @@
 <h1>PROJETO SPACE</h1>
 <p>O projeto, adaptado do curso de Django da Alura, apresenta imagens de estrelas, galáxias, nebulosas e planetas capturadas por satélites da NASA.</p>
 <p>O usuário pode selecionar as imagens desejadas através de um campo de buscas, clicando em uma categoria ou simplesmente clicando na imagem a partir da listagem.</p>
-
+<br>
 <h3>🎯 Objetivos do Projeto</h3>
 <p>O projeto foi criado para desenvolver habilidades no uso do framework Django/ Python. Trabalho há anos com Laravel/ PHP e posso afirmar algumas coisas:</p>
 <ul>
@@ -15,49 +15,54 @@
     <li>No geral, a primeira vista, tenho a impressão de que produtividade tende a ser sensivelmente maior com Django do que com Laravel.</li>
     <li>Ainda não estudei/ implementei um Saas usando Django. Assim que fizer algo nesse sentido volto aqui para compartilhar minhas impressões.</li>
 </ul>
-
+<br>
 <h3>🦋 Sobre o Design</h3>
 <p>No início do treinamento, o projeto pareceu super bem estruturado, mas conforme as coisas foram avançando, percebi que alguns erros impactaram sensívelmente a construção de uma interface <strong>correta</strong>.</p>
 <p>O projeto não implementava bootstrap, mas quando alguns formulários passaram a ser implementados, novos cabeçalhos html5 foram implementados junto com as novas páginas.</p>
 <p>Ao tentar corrigir o problema refatorando os códigos surgiram vários conflitos... Enfim, implementei alguns ajustes mas não ficou satisfatório, principalmente quando requisita os formulários de cadastro e edição.</p>
-
+<br>
 <h3>👀 Get Started</h3>
-<p>Siga esses passos para configurar e executar o projeto Django localmente:</p>
+<p>Siga esses passos para configurar e executar o projeto Django localmente:</p><br>
 
-PRÉ-REQUISITOS
+<strong>PRÉ-REQUISITOS:</strong><br>
 Antes de começar, certifique-se de ter o Python 3 instalado em sua máquina.
-
-1o. Clonar o repositório e acessar o diretório raiz:
+<br>
+<strong>1o.</strong> Clonar o repositório e acessar o diretório raiz:
 ```bash
 git clone https://github.com/eanicomaco/space-python-django.git
 
 cd space-python-django
 ```
-2o. Criar e acessar o Ambiente Virtual (venv):
+<br>
+<strong>2o.</strong> Criar e acessar o Ambiente Virtual (venv):
 ```bash
 python -m venv venv
 
 # acessar o ambiente no windows
 venv\Scripts\activate
 
-#acessar o amgiente no linux ou mac
+#acessar o ambiente no linux ou mac
 source venv/bin/activate
 ```
-3o. Instalar as dependências
+<br>
+<strong>3o.</strong> Instalar as dependências:
 ```bash
 pip install -r requirements.txt
 ```
-4o. Configurar o Banco de Dados (SQLight3)
+<br>
+<strong>4o.</strong> Configurar o Banco de Dados (SQLight3):
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
-5o. Rodar o servidor de desenvolvimento
+<br>
+<strong>5o.</strong> Rodar o servidor de desenvolvimento:
 ```bash
 python manage.py runserver
 ```
-Por fim, basta abrir o navegador e acessar 'http://127.0.0.1:8000' para ver a aplicação em funcionamento.
-
+<br>
+Após esses passsos, abrir o navegador e acessar 'http://127.0.0.1:8000' para ver a aplicação em funcionamento.
+<br>
 <h3>🛠️ Ferramentas utilizadas</h3>
 <ul>
     <li>Python 3.12.3</li>
