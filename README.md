@@ -28,7 +28,7 @@
 
 <br>
 
-<h3>Get Started</h3>
+<h3>✨ Get Started</h3>
 
 <p>Siga esses passos para configurar e executar o projeto Django localmente:</p><br>
 
@@ -54,7 +54,7 @@ python -m venv venv
 # acessar o ambiente no windows
 venv\Scripts\activate
 
-#acessar o ambiente no linux ou mac
+# acessar o ambiente no linux ou mac
 source venv/bin/activate
 ```
 
