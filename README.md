@@ -28,7 +28,7 @@
 
 <br>
 
-<h3>👀 Get Started</h3>
+<h3>Get Started</h3>
 
 <p>Siga esses passos para configurar e executar o projeto Django localmente:</p><br>
 
@@ -60,7 +60,7 @@ source venv/bin/activate
 
 <br>
 
-<strong>3o.</strong> Instalar as dependências:
+<strong>3o.</strong> Instalar as dependências do projeto:
 
 ```bash
 pip install -r requirements.txt
